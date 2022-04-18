@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"time"
 
+	v0 "github.com/MulDeveloper/go-test-crud/internal/server/v0"
 	"github.com/go-chi/chi"
 )
 
@@ -14,6 +15,9 @@ type Server struct {
 
 func New(port string) (*Server, error) {
 	r := chi.NewRouter()
+
+	// API routes v0.
+	r.Mount("/api/v0", v0.New())
 
 	serv := &http.Server{
 		Addr:         ":" + port,

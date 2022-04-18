@@ -6,7 +6,7 @@ import (
 	"github.com/google/uuid"
 )
 
-type CarRepository interface {
+type Repository interface {
 	GetAll(ctx context.Context) ([]Car, error)
 	GetOne(ctx context.Context, id uuid.UUID) (Car, error)
 	Create(ctx context.Context, post *Car) error
